@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastros</title>
+</head>
+<body>
+    <h1>Cadastros</h1>
+
+    <div id="cadastros"></div>
+
+    <script>
+        // Simulando dados cadastrados (você irá substituir isso com os dados do seu banco de dados)
+        var cadastros = [
+            { nome: "João", email: "joao@example.com", idade: 30, endereco: "Rua A, 123" },
+            { nome: "Maria", email: "maria@example.com", idade: 25, endereco: "Rua B, 456" }
+        ];
+
+        // Função para exibir os dados cadastrados na página
+        function exibirCadastros() {
+            var cadastrosHtml = "<h2>Lista de Cadastros</h2><ul>";
+            cadastros.forEach(function(cadastro) {
+                cadastrosHtml += "<li><strong>Nome:</strong> " + cadastro.nome + "<br><strong>Email:</strong> " + cadastro.email + "<br><strong>Idade:</strong> " + cadastro.idade + "<br><strong>Endereço:</strong> " + cadastro.endereco + "</li><br>";
+            });
+            cadastrosHtml += "</ul>";
+            document.getElementById("cadastros").innerHTML = cadastrosHtml;
+        }
+
+        // Chamando a função para exibir os cadastros ao carregar a página
+        window.onload = exibirCadastros;
+    </script>
+</body>
+</html>
