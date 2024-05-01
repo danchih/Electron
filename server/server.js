@@ -26,7 +26,7 @@ app.post('/login', (req, res) => {
 
 app.post('/cadastro', (req, res) => {
     const { nome, email, password, endereco, cep, bairro, cidade, estado } = req.body;
-    connection.query('INSERT INTO cadastros (nome, email, password, endereco, cep, bairro, cidade, estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)', [nome, email, password, endereco, cep, bairro, cidade, estado], (error, results) => {
+    connection.query('INSERT INTO cadastros (nome, email, senha, endereco, cep, bairro, cidade, estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)', [nome, email, password, endereco, cep, rua, bairro, cidade, estado], (error, results) => {
         if (error) {
             console.error('Erro ao inserir dados de cadastro:', error);
             res.status(500).json({ error: 'Erro interno do servidor' });
