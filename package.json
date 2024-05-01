@@ -1,28 +1,21 @@
 {
-  "name": "apresentacao6-app",
+  "name": "electronjs",
   "version": "1.0.0",
-  "description": "Apresentacao 6 - APP",
+  "description": "projeto6app",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "test": "\"echo \\\"Error: no test specified\\\" && exit 1\""
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "ElectronJs"
-  },
-  "keywords": [
-    "electron"
-  ],
-  "author": "giovana",
+  "author": "daniela",
   "license": "MIT",
   "devDependencies": {
-    "@okta/okta-auth-js": "^5.8.0",
-    "electron": "^16.2.8"
+    "electron": "30.0.1"
   },
   "dependencies": {
-    "axios": "^1.6.8",
-    "express": "^4.19.2",
-    "mysql": "^2.18.1"
+    "dotenv": "^16.4.5",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.9.7",
+    "sequelize": "^6.37.3"
   }
 }

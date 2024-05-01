@@ -38,7 +38,7 @@ app.on('activate', () => {
 
 // Conexão com o banco de dados MySQL
 const connection = mysql.createConnection({
-  host: 'mysql',
+  host: 'localhost',
   user: 'root',
   password: 'root',
   database: 'electron'

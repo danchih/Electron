@@ -5,7 +5,7 @@ FROM node:latest
 WORKDIR /app
 
 # Copia os arquivos necessários
-# COPY . .
+#COPY app ./app
 COPY server ./server
 COPY package.json .
 COPY package-lock.json .
@@ -15,6 +15,8 @@ RUN npm install express --save
 
 # Instala as dependências
 RUN npm install
+
+
 
 # Expõe a porta 3000
 EXPOSE 3000
