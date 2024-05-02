@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Usuários</title>
+    <style>
+          body {
+            font-family: 'Segoe UI',  Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            color: #332;
+        }
+        h1 {
+            text-align: center;
+            color: #131518;
+        }
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        }
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #7c34db;
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #ecf0f1;
+        }
+        tr:hover {
+            background-color: #bdc3c7;
+            cursor: pointer;
+        }
+
+        .button-container {
+    margin-top: 30px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #7c34db;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.4s; 
+  outline: none; 
+  }
+  
+  .btn:hover, .btn:focus {
+  background-color: #7c34db;
+  transform: scale(1.02); /* Slightly enlarges buttons on hover/focus */
+}
+
+.btn:active {
+  transform: scale(0.98); /* Subtle click effect */
+}
+
+
+        @media (max-width: 600px) {
+            table {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Usuários Cadastrados</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>CEP</th>
+                <th>Rua</th>
+                <th>Bairro</th>
+                <th>Localidade</th>
+                <th>UF</th>
+            </tr>
+        </thead>
+        <tbody id="userTable">
+            <!-- Usuários inseridos via JavaScript -->
+        </tbody>
+    </table>
+    
+    <script>
+        fetch('http://localhost:3000/getUsers') // Make sure this matches your server URL and port
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        const table = document.getElementById('userTable');
+        data.forEach(user => {
+            const row = `<tr>
+                <td>${user.nome}</td>
+                <td>${user.email}</td>
+                <td>${user.cep}</td>
+                <td>${user.rua}</td>
+                <td>${user.bairro}</td>
+                <td>${user.localidade}</td>
+                <td>${user.uf}</td>
+            </tr>`;
+            table.innerHTML += row;
+        });
+    })
+    .catch(error => console.error('Erro ao buscar usuários:', error));
+   
+   </script>
+</body>
+</html>

@@ -33,4 +33,3 @@ function preencherEndereco(cep) {
         })
         .catch(error => console.error('Erro ao preencher endereço:', error));
 }
-
