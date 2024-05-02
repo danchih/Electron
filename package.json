@@ -1,0 +1,47 @@
+{
+
+  "name": "sistema-login",
+
+  "version": "1.0.0",
+
+  "description": "",
+
+  "main": "main.js",
+
+  "dependencies": {
+
+    "concurrently": "^8.2.2",
+
+    "electron": "^30.0.1",
+
+    "express": "^4.19.2",
+
+    "mysql": "^2.18.1",
+
+    "mysql2": "^3.9.7"
+
+  },
+
+  "scripts": {
+
+    "test": "jest",
+
+    "start": "concurrently \"node app.js\" \"electron .\""
+
+  },
+
+  "keywords": [],
+
+  "author": "",
+
+  "license": "ISC",
+
+  "devDependencies": {
+
+    "jest": "^29.7.0",
+
+    "supertest": "^7.0.0"
+
+  }
+
+}
