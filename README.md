@@ -6,3 +6,8 @@ Projeto com sistema de login, feito em ElectronJS.
 A API de ViaCep foi utilizada para preencher o endereço de forma automática partindo do CEP que a pessoa forneça.
 
 Comandos:
+npm install electron
+npm install express mysql2@latest concurrently
+npm install mysql2
+docker pull mysql
+docker-compose up -d
