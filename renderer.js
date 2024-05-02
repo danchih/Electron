@@ -3,7 +3,7 @@ const { ipcRenderer } = require('electron');
 function logar() {
     const email = document.querySelector('input[name="email"]').value;
     const password = document.querySelector('input[name="password"]').value;
-    
+
     // Envia os dados para o processo principal (main.js) para autenticação
     ipcRenderer.send('login', { email, password });
 }
@@ -18,8 +18,37 @@ function cadastrar() {
     const cidade = document.querySelector('input[name="cidade"]').value;
     const estado = document.querySelector('input[name="estado"]').value;
 
-    // Envia os dados para o processo principal (main.js) para cadastro
-    ipcRenderer.send('cadastro', { nome, email, password, endereco, cep, bairro, cidade, estado });
+    // Enviar dados de cadastro para o servidor via fetch
+    fetch('http://localhost:3000/cadastrar-usuario', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            nome,
+            email,
+            password,
+            endereco,
+            cep,
+            bairro,
+            cidade,
+            estado
+        }),
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erro ao cadastrar usuário');
+        }
+        return response.json();
+    })
+    .then(data => {
+        alert('Usuário cadastrado com sucesso!');
+        window.location.href = "usuarios.html"; // Redireciona para a página de usuários
+    })
+    .catch(error => {
+        console.error('Erro ao cadastrar usuário:', error);
+        alert('Erro ao cadastrar usuário. Por favor, tente novamente.');
+    });
 }
 
 function preencherEndereco(cep) {
@@ -33,4 +62,3 @@ function preencherEndereco(cep) {
         })
         .catch(error => console.error('Erro ao preencher endereço:', error));
 }
-
