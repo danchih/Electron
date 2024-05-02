@@ -21,10 +21,15 @@ Sobe o Container MySQL:
 ```sh
 docker pull mysql
 ```
-Intalar o composer:
+Instalar o Composer:
 ```sh
 docker-compose up -d
 ```
+Inicia o Electron:
+```sh
+npm start
+```
+
 
 ### Pessoas Desenvolvedoras: 
 - Beatriz Cupa Newman
