@@ -13,12 +13,6 @@ COPY package-lock.json .
 RUN npm install -g npm@latest
 RUN npm install express --save
 
-# Instala os pacotes para utilizar Sequelize CLI
-#RUN npm install --save sequelize
-#RUN npm install --save mysql2
-#RUN npm install dotenv --save
-#RUN npm install --save-dev sequelize-cli
-
 # Instala as dependências
 RUN npm install
 
